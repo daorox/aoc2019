@@ -65,7 +65,7 @@ def parse_opcodes(lst):
     return lst[0]
 
 
-with open("C:\\Users\\use\\Desktop\\aoc\\e5.txt") as f:
+with open("e5.txt") as f:
     lst = list(map(int, f.read().split(",")))
 
 # 1
