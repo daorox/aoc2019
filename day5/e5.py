@@ -22,7 +22,10 @@ def get_action(instruction):
 
 
 def get_params(lst, cur_pos, count, modes):
-    return [lst[cur_pos+i+1] if modes and modes[i] else lst[lst[cur_pos+i+1]] for i in range(count)]
+    return [
+        lst[cur_pos + i + 1] if modes and modes[i] else lst[lst[cur_pos + i + 1]]
+        for i in range(count)
+    ]
 
 
 def parse_opcodes(lst):
@@ -33,14 +36,14 @@ def parse_opcodes(lst):
 
         if op == 1:
             a, b = get_params(lst, i, 2, modes)
-            lst[lst[i+3]] = a + b
+            lst[lst[i + 3]] = a + b
             i += 4
         elif op == 2:
             a, b = get_params(lst, i, 2, modes)
-            lst[lst[i+3]] = a * b
+            lst[lst[i + 3]] = a * b
             i += 4
         elif op == 3:
-            lst[lst[i+1]] = INPUT
+            lst[lst[i + 1]] = INPUT
             i += 2
         elif op == 4:
             print(*get_params(lst, i, 1, modes))
@@ -53,11 +56,11 @@ def parse_opcodes(lst):
             i = b if a == 0 else i + 3
         elif op == 7:
             a, b = get_params(lst, i, 2, modes)
-            lst[lst[i+3]] = 1 if a < b else 0
+            lst[lst[i + 3]] = 1 if a < b else 0
             i += 4
         elif op == 8:
             a, b = get_params(lst, i, 2, modes)
-            lst[lst[i+3]] = 1 if a == b else 0
+            lst[lst[i + 3]] = 1 if a == b else 0
             i += 4
         elif op == 99:
             break

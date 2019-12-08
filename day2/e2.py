@@ -7,12 +7,12 @@ from copy import deepcopy
 def parse_opcodes(lst):
     lst = deepcopy(lst)
     for i in range(0, len(lst), 4):
-        a = lst[lst[i+1]]
-        b = lst[lst[i+2]]
+        a = lst[lst[i + 1]]
+        b = lst[lst[i + 2]]
         op = add if lst[i] == 1 else mul
-        lst[lst[i+3]] = op(a, b)
+        lst[lst[i + 3]] = op(a, b)
 
-        if lst[i+4] == 99:
+        if lst[i + 4] == 99:
             break
     return lst[0]
 

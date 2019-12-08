@@ -33,23 +33,25 @@ class Orbits:
 
     def count_orbital_transfers(self, start, end):
         explored = set()
-        frontier = [(self.orbiting[start], 1), *[(orb, 1)
-                                                 for orb in self.orbited[start]]]
+        frontier = [
+            (self.orbiting[start], 1),
+            *[(orb, 1) for orb in self.orbited[start]],
+        ]
         while frontier:
             frontier = sorted(frontier, key=lambda x: x[1])
             orb, cost = frontier.pop(0)
             explored.add(orb)
 
             if orb == end:
-                return cost-2
+                return cost - 2
 
             if orb in self.orbiting and self.orbiting[orb] not in explored:
-                frontier.append((self.orbiting[orb], cost+1))
+                frontier.append((self.orbiting[orb], cost + 1))
 
             if orb in self.orbited:
                 for out in self.orbited[orb]:
                     if out not in explored:
-                        frontier.append((out, cost+1))
+                        frontier.append((out, cost + 1))
         return -1
 
 

@@ -1,6 +1,6 @@
 # 1
 with open("e1.txt") as f:
-    print(sum(x//3 - 2 for x in map(int, f.readlines())))
+    print(sum(x // 3 - 2 for x in map(int, f.readlines())))
 
 # 2
 
@@ -15,5 +15,4 @@ def calc_extras(given):
 
 
 with open("e1.txt") as f:
-    print(sum(x//3 - 2 + calc_extras(x//3 - 2)
-              for x in map(int, f.readlines())))
+    print(sum(x // 3 - 2 + calc_extras(x // 3 - 2) for x in map(int, f.readlines())))

@@ -10,7 +10,7 @@ def has_doubles(s, strict=False):
 
 
 def in_range(v):
-    return int(inp.split('-')[0]) <= v <= int(inp.split('-')[1])
+    return int(inp.split("-")[0]) <= v <= int(inp.split("-")[1])
 
 
 def is_valid(s, strict=False):
@@ -18,14 +18,17 @@ def is_valid(s, strict=False):
 
 
 def valid_nums(strict):
-    return [s
-            for a in range(10)
-            for b in range(a, 10)
-            for c in range(b, 10)
-            for d in range(c, 10)
-            for e in range(d, 10)
-            for f in range(e, 10)
-            if(s:=str(a)+str(b)+str(c)+str(d)+str(e)+str(f)) and is_valid(s, strict)]
+    return [
+        s
+        for a in range(10)
+        for b in range(a, 10)
+        for c in range(b, 10)
+        for d in range(c, 10)
+        for e in range(d, 10)
+        for f in range(e, 10)
+        if (s := str(a) + str(b) + str(c) + str(d) + str(e) + str(f))
+        and is_valid(s, strict)
+    ]
 
 
 # 1 and 2
